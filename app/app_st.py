@@ -5,6 +5,9 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 from tensorflow.keras.models import load_model
+from tensorflow.compat.v1.losses import sparse_softmax_cross_entropy
+
+
 
 # from captum.attr import IntegratedGradients
 
@@ -42,7 +45,6 @@ def main():
     st.title("Tea Leaf Disease Classification :tea: :coffee:")
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
     
-
     if uploaded_file is not None:
         image = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), 1)
         st.image(image, caption="Uploaded Image", use_column_width=True)
@@ -51,8 +53,12 @@ def main():
         if is_relevant_image(image):
             if st.button("Classify"):
                 predictions = predict_image(image)
-                st.write("Predictions:")
-                st.write(predictions)
+                st.write("Top 5 Predictions:")
+                for i, (label, prob) in enumerate(sorted(predictions.items(), key=lambda x: x[1], reverse=True)[:5]):
+                    st.write(f"{i + 1}. {label}: {prob}%")
+
+                    # Display progress bar
+                    st.progress(prob)
         else:
             st.warning("The uploaded image is not relevant to the task. Please choose an image of tea leaves.")
 
