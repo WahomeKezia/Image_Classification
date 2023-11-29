@@ -5,9 +5,6 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 from tensorflow.keras.models import load_model
-from tensorflow.compat.v1.losses import sparse_softmax_cross_entropy
-
-
 
 # from captum.attr import IntegratedGradients
 
