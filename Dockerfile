@@ -4,9 +4,6 @@ FROM python:3.9.7-slim
 # Set the working directory in the container
 WORKDIR /app
 
-# Install Rust
-RUN apt-get update && apt-get install -y curl && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
 # Copy only the necessary files into the container
 COPY app/app_st.py /app
 COPY requirements.txt /app
