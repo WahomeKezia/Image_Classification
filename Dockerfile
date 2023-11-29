@@ -1,11 +1,15 @@
 # Use an official Python runtime as a parent image
-FROM python:3.8-slim
+FROM python:3.9.7-slim
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Install Rust
+RUN apt-get update && apt-get install -y curl && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+# Copy only the necessary files into the container
+COPY app/app_st.py /app
+COPY requirements.txt /app
 
 # Install any dependencies needed
 RUN pip install --upgrade pip

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Imageclassifcation",
+			"path": "."
+		},
+		{
+			"name": "tea sickness dataset",
+			"path": "../../Downloads/tea sickness dataset"
+		}
+	],
+	"settings": {}
+}
