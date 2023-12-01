@@ -4,14 +4,14 @@ from PIL import Image
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-from keras.models import load_model 
+from keras.models import load_model
 
 # from captum.attr import IntegratedGradients
 
 # python -m pip install {package_name}.
 
 # Load the saved model
-model = load_model('models/tea_leaf_disease_model.h5')
+model = load_model('models/model_with_extraction.h5')
 
 # Define class names
 class_names = ['Anthracnose', 'algal leaf', 'bird eye spot', 'brown blight', 'gray light', 'healthy', 'red leaf spot', 'white spot']
