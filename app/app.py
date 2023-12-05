@@ -135,5 +135,8 @@ else:
         st.sidebar.warning(string)
         st.markdown("## Remedy")
         st.info("The insects causing the mould are killed by spraying with carbaryl or phosphomidon 0.03%. It is followed by spraying with a dilute solution of starch or maida 5%. On drying, the starch comes off in flakes and the process removes the black mouldy growth fungi from different plant parts.")
+    else:
+        # Image not relevant to the task
+        st.warning("The uploaded image is not relevant to the tea leaf disease detection task.")
 
 
